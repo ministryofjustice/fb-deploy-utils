@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-deploy-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Utility scripts to deploy Form Builder applications",
   "main": "index.js",
   "scripts": {
@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/ministryofjustice/fb-deploy-utils#readme",
   "dependencies": {
-    "yargs": "^13.2.2"
+    "yargs": "^13.2.4"
   },
   "devDependencies": {
-    "@ministryofjustice/eslint-config-fb": "^1.0.5"
+    "@ministryofjustice/eslint-config-fb": "^1.0.7"
   }
 }
