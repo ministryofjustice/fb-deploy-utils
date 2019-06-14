@@ -139,7 +139,7 @@ do
     ENV=$PLATFORM_ENV-$DEPLOYMENT_ENV
   fi
   
-  ENVCMD="kubectl delete pods -l appGroup=$FB_APPLICATION --context=$CONTEXT --namespace=formbuilder-$FB_NAMESPACE-$ENV"
+  ENVCMD="kubectl delete pods -l appGroup=$FB_APPLICATION --context=$FB_CONTEXT --namespace=formbuilder-$FB_NAMESPACE-$ENV"
 
   echo "$ENVCMD"
   if [ "$DRY_RUN" = "true" ]; then
