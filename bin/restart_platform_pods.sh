@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # This script is intended to be called by a corresponding script for a specific application
 # with the application passed in as an environment variable, FB_APPLICATION
@@ -139,13 +139,13 @@ do
     ENV=$PLATFORM_ENV-$DEPLOYMENT_ENV
   fi
   
-  ENVCMD="kubectl delete pods -l appGroup=$FB_APPLICATION --context=$CONTEXT --namespace=formbuilder-$FB_NAMESPACE-$ENV"
+  ENVCMD="kubectl delete pods -l appGroup=$FB_APPLICATION --context=$FB_CONTEXT --namespace=formbuilder-$FB_NAMESPACE-$ENV"
 
   echo "$ENVCMD"
   if [ "$DRY_RUN" = "true" ]; then
     echo "Skipping restart"
   else
-    $ENVCMD &
+    $ENVCMD
   fi
   
 done
