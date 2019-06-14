@@ -145,7 +145,7 @@ do
   if [ "$DRY_RUN" = "true" ]; then
     echo "Skipping restart"
   else
-    $ENVCMD &
+    $ENVCMD
   fi
   
 done
