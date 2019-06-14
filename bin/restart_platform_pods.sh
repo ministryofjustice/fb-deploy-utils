@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # This script is intended to be called by a corresponding script for a specific application
 # with the application passed in as an environment variable, FB_APPLICATION
