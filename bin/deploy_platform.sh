@@ -180,6 +180,8 @@ do
   SecretsConfig="$DEPLOYMENT_REPO/secrets/$ENV-secrets-values.yaml"
   [ -f "$SecretsConfig" ] && HELMCMD="$HELMCMD -f $SecretsConfig"
 
+  [ -z "$CIRCLE_SHA1" ] && HELMCMD="$HELMCMD --set circleSha1=$CIRCLE_SHA1"
+
   HELMCMD="helm template deploy/$CHARTNAME $HELMCMD --set environmentName=$ENV --set platformEnv=$PLATFORM_ENV"
 
   echo $HELMCMD
@@ -196,5 +198,5 @@ do
     echo $KUBECTLCMD
     $KUBECTLCMD
   fi
-  
+
 done
