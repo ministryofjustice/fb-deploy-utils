@@ -51,6 +51,11 @@ PARAMETERS
     Path to deployment repo
     If not specified, defaults to the assumption that $FB_APPLICATION-deploy is in the same directory as $FB_APPLICATION
 
+  -s, --sha1 (optional)
+
+    Git sha of code being deployed
+    Docker images are tagged with this and used here to instruct Helm which image needs pulling for deployment
+
   -c, --context (optional)
 
     Kubernetes context to run commands in
@@ -119,6 +124,13 @@ while [ "$1" != "" ]; do
               shift
             fi
             FB_CONTEXT=($VALUE)
+            ;;
+        -s | --sha1)
+            if [ "$VALUE" = "" ]; then
+                VALUE=$1
+                shift
+            fi
+            CIRCLE_SHA1=($VALUE)
             ;;
         -n | --dry-run)
             DRY_RUN=true
