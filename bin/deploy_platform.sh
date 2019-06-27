@@ -51,10 +51,10 @@ PARAMETERS
     Path to deployment repo
     If not specified, defaults to the assumption that $FB_APPLICATION-deploy is in the same directory as $FB_APPLICATION
 
-  -s, --sha1 (optional)
+  -s, --sha1
 
-    Git sha of code being deployed
-    Docker images are tagged with this and used here to instruct Helm which image needs pulling for deployment
+    Git sha of the code to be deployed
+    Ensure this value is set when running this script
 
   -c, --context (optional)
 
@@ -150,6 +150,11 @@ if [ "$PLATFORM_ENV" = "" ]; then
   usage 1
 fi
 
+if [ "$CIRCLE_SHA1" = "" ]; then
+    echo "--sha1 must be set";
+    exit 1;
+fi
+
 DEP_LENGTH=${#DEPLOYMENT_ENVS[@]}
 if [ "$DEP_LENGTH" = "0" ]; then
   DEPLOYMENT_ENVS=("dev" "staging" "production")
@@ -192,9 +197,7 @@ do
   SecretsConfig="$DEPLOYMENT_REPO/secrets/$ENV-secrets-values.yaml"
   [ -f "$SecretsConfig" ] && HELMCMD="$HELMCMD -f $SecretsConfig"
 
-  [ -z "$CIRCLE_SHA1" ] && HELMCMD="$HELMCMD --set circleSha1=$CIRCLE_SHA1"
-
-  HELMCMD="helm template deploy/$CHARTNAME $HELMCMD --set environmentName=$ENV --set platformEnv=$PLATFORM_ENV"
+  HELMCMD="helm template deploy/$CHARTNAME $HELMCMD --set circleSha1=$CIRCLE_SHA1 --set environmentName=$ENV --set platformEnv=$PLATFORM_ENV"
 
   echo $HELMCMD
   echo "Writing $ENV config to $CONFIG_FILE"
