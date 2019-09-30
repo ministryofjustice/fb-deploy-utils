@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-deploy-utils",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Utility scripts to deploy Form Builder applications",
   "main": "index.js",
   "scripts": {
