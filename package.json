@@ -1,20 +1,20 @@
 {
   "name": "@ministryofjustice/fb-deploy-utils",
-  "version": "1.0.11",
-  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
-  "license": "MIT",
+  "version": "1.0.12",
   "description": "Utility scripts to deploy Form Builder applications",
   "main": "./index.js",
   "scripts": {
     "lint": "eslint *.js bin lib",
     "lint:fix": "eslint *.js bin lib --fix"
   },
+  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ministryofjustice/fb-deploy-utils.git"
   },
+  "license": "MIT",
   "dependencies": {
-    "yargs": "^13.2.4"
+    "yargs": "^14.2.0"
   },
   "devDependencies": {
     "@ministryofjustice/eslint-config-fb": "^1.1.2"
