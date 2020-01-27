@@ -5,5 +5,3 @@
 .nvmrc
 .eslintignore
 .eslintrc
-
-*.sh
