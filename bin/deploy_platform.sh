@@ -42,7 +42,7 @@ PARAMETERS
 
   -p, --platform
 
-    test|integration|live
+    test|pentest|live
 
     Platform environment to deploy to
   $DEPLOYMENT_ENV_USAGE
