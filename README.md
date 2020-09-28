@@ -1,3 +1,5 @@
+## Deprecated in favour of https://github.com/ministryofjustice/fb-deploy
+
 # fb-deploy-utils
 
 Utility scripts to aid deployment of Form Builder platform applications
